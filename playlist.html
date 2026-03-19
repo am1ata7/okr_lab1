@@ -1,37 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Музика — плейлист</title>
-  <meta charset="UTF-8">
-  <meta name="author" content="Анастасія Дроздова">
+    <meta charset="UTF-8">
+    <meta name="author" content="Анастасія Дроздова">
+    <title>Музика — плейлист</title>
 </head>
-<body>
-  <h1>Мій плейлист</h1>
-  <p>Добірка треків (можеш змінити назви):</p>
+<body bgcolor="#fff3e0" link="brown" vlink="purple" alink="red">
 
-  <table border="1" cellpadding="6">
-    <tr>
-      <th>#</th>
-      <th>Трек</th>
-      <th>Виконавець</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Genesis</td>
-      <td>Deftones</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>It's No Good</td>
-      <td>Depeche Mode</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Levitating</td>
-      <td>Dua Lipa</td>
-    </tr>
-  </table>
+    <h1>Плейлист</h1>
 
-  <a href="index.html">← На головну</a>
+    <p><b>Плейлист</b> — це добірка музичних композицій, зібраних за певним настроєм або тематикою.</p>
+    <p><i>Нижче подано приклад складної таблиці</i> з інформацією про декілька популярних треків.</p>
+
+    <table border="1" cellspacing="8" cellpadding="10">
+        <colgroup>
+            <col style="background-color:#ffe0b2">
+            <col style="background-color:#fff8e1">
+            <col style="background-color:#fff8e1">
+            <col style="background-color:#fbe9e7">
+        </colgroup>
+
+        <tr align="center" bgcolor="#ffcc80">
+            <th>№</th>
+            <th colspan="2">Інформація про трек</th>
+            <th>Оцінка</th>
+        </tr>
+
+        <tr align="left">
+            <td rowspan="2">1</td>
+            <td>Назва</td>
+            <td>Blinding Lights</td>
+            <td align="center">10</td>
+        </tr>
+
+        <tr align="right">
+            <td>Виконавець</td>
+            <td>The Weeknd</td>
+            <td align="center">Хіт</td>
+        </tr>
+
+        <tr align="center">
+            <td rowspan="2">2</td>
+            <td>Назва</td>
+            <td>Levitating</td>
+            <td>9</td>
+        </tr>
+
+        <tr valign="top">
+            <td>Виконавець</td>
+            <td>Dua Lipa</td>
+            <td>Популярний</td>
+        </tr>
+
+        <tr align="left">
+            <td rowspan="2">3</td>
+            <td>Назва</td>
+            <td>Enjoy the Silence</td>
+            <td align="center">10</td>
+        </tr>
+
+        <tr align="center">
+            <td>Виконавець</td>
+            <td>Depeche Mode</td>
+            <td>Класика</td>
+        </tr>
+    </table>
+
+    <h2>Плаваючий фрейм</h2>
+<p>iframe з музичним відео.</p>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/rbTAlBGL-lI?si=e_S_lNeHlwRK6Ovh"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen>
+</iframe>
+<p><a href="index.html">На головну сторінку</a></p>
 </body>
 </html>
