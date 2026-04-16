@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    a {
-        color: brown !important;
-    }
-</style>
     <meta charset="UTF-8">
     <meta name="author" content="Анастасія Дроздова">
-    <title>Головна</title>
+    <title>DRZDV Music — головна</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .section a {
+            color: darkgreen;
+        }
+    </style>
 </head>
-<body bgcolor="#fce4ec" link="blue" vlink="purple" alink="red">
+<body>
 
-    <h1 id="special-title">Музика</h1>
+<header>
+    <h1 id="special-title">DRZDV Music</h1>
+    <p>Створено меломаном</p>
+</header>
 
-    <p><b>Музика</b> є важливою частиною життя людини. Вона супроводжує нас у повсякденному житті, створює настрій і допомагає передавати емоції.</p>
+<nav>
+    <a href="index.html">Головна</a>
+    <a href="artists.html">Виконавці</a>
+    <a href="genres.html">Жанри</a>
+    <a href="playlist.html">Плейлист</a>
+</nav>
 
-    <p class="main-text"><i>Сучасна музика</i> охоплює велику кількість жанрів та виконавців. Кожна людина може знайти саме той стиль, який їй найбільше подобається.</p>
+<div class="container">
+    <section class="section content">
+        <h2>Свіжі релізи</h2>
+        <p>Композиції, які вийшли за останній час</p>
 
-    <p>На цьому сайті представлена коротка інформація про виконавців, жанри музики та невеликий плейлист.</p>
+        <div class="frame-block">
+            <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/8-_c9rVt-xo?si=ch_vNJmRIByqZDaK" title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
 
-    <h2>Навігація по сайту</h2>
-    <p><a href="artists.html">Перейти на сторінку "Виконавці"</a></p>
-    <p><a href="genres.html">Перейти на сторінку "Жанри"</a></p>
-    <p><a href="playlist.html">Перейти на сторінку "Плейлист"</a></p>
+    </section>
 
-    <h2>Приклади гіперпосилань</h2>
-    <p><a href="#bottom">Перейти в кінець поточної сторінки</a></p>
-    <p><a href="artists.html#artists-list">Перейти до списку виконавців на іншій сторінці</a></p>
-    <p><a id="unique-link" href="https://www.spotify.com/" target="_blank">Перейти на сайт Spotify</a></p>
+    <section class="section content">
+        <h2>Навігація</h2>
+        <p><a href="artists.html">Перейти до сторінки виконавців</a></p>
+        <p><a href="genres.html">Перейти до сторінки жанрів</a></p>
+        <p><a href="playlist.html">Перейти до плейлиста</a></p>
+        <p><a id="unique-link" href="https://www.spotify.com/" target="_blank">Відкрити Spotify</a></p>
+    </section>
+</div>
 
-    <p>Музика буває дуже різною: спокійною, ритмічною, атмосферною або енергійною. Саме тому вона є важливою частиною сучасної культури.</p>
-<p style="color: darkred; font-weight: bold;">Цей абзац оформлений внутрішнім стилем.</p>
-    <p id="bottom"><a href="#top">Повернутися на початок сторінки</a></p>
+<footer>
+    <p>DRZDV Music © 2026</p>
+</footer>
 
 </body>
 </html>

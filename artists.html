@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="author" content="Анастасія Дроздова">
-    <title>Музика — виконавці</title>
+    <title>Music Space — виконавці</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor="#e3f2fd" link="darkblue" vlink="purple" alink="red">
+<body>
 
+<header>
     <h1>Виконавці</h1>
+    <p>Добірка артистів, які формують різні музичні настрої</p>
+</header>
 
-    <p><b>Korn</b> — американський гурт, який є одним із найвідоміших представників жанру nu metal. Їхня музика відрізняється важким звучанням та емоційною подачею.</p>
+<nav>
+    <a href="index.html">Головна</a>
+    <a href="artists.html">Виконавці</a>
+    <a href="genres.html">Жанри</a>
+    <a href="playlist.html">Плейлист</a>
+</nav>
 
-    <p class="main-text"><i>Depeche Mode</i> — британський гурт, який став дуже впливовим у світі електронної музики.</p>
+<div class="container">
+    <section class="section content">
+        <h2>Популярні виконавці</h2>
+        <p>На цій сторінці зібрано кілька виконавців з різним стилем та звучанням.</p>
 
-    <p><b>Dua Lipa</b> — популярна британська співачка, яка виконує сучасну поп-музику. Її пісні часто займають високі позиції у музичних чартах.</p>
+        <div class="card-list">
+            <div class="card">
+                <img src="images/K.png" alt="Korn">
+                <h3>Korn</h3>
+                <p><span class="highlight">Nu metal</span> з важким і впізнаваним звучанням.</p>
+            </div>
 
-    <p><i>The Weeknd</i> — канадський виконавець, відомий своїм атмосферним звучанням, унікальним вокалом і великою кількістю популярних хітів.</p>
+            <div class="card">
+                <img src="images/imageDP.jpg" alt="Depeche Mode">
+                <h3>Depeche Mode</h3>
+                <p>Культовий гурт зі світу <span class="highlight">synth-pop</span>.</p>
+            </div>
 
-    <h2 id="artists-list">Список виконавців</h2>
-    <ul type="square">
-        <li>Korn</li>
-        <li>Depeche Mode</li>
-        <li>Dua Lipa</li>
-        <li>The Weeknd</li>
-    </ul>
+            <div class="card">
+                <img src="images/imageDL.jpg" alt="Dua Lipa">
+                <h3>Dua Lipa</h3>
+                <p>Одна з найпопулярніших представниць сучасної <span class="highlight">pop</span>-музики.</p>
+            </div>
 
-    <h2>Жанри, з якими пов’язані ці виконавці</h2>
-    <ol type="A">
-        <li>Nu metal</li>
-        <li>Synth-pop</li>
-        <li>Pop</li>
-        <li>R&B</li>
-    </ol>
+            <div class="card">
+                <img src="images/TW.png" alt="The Weeknd">
+                <h3>The Weeknd</h3>
+                <p>Атмосферне звучання, R&B і впізнавані хіти.</p>
+            </div>
+        </div>
+    </section>
 
-    <h2>Музичні терміни</h2>
-    <dl>
-        <dt><b>Альбом</b></dt>
-        <dd>Музична збірка, яка складається з декількох треків одного виконавця або гурту.</dd>
+    <section class="section content">
+        <h2>Короткий список</h2>
+        <p>Виконавці, представлені на сайті:</p>
+        <ul>
+            <li>Korn</li>
+            <li>Depeche Mode</li>
+            <li>Dua Lipa</li>
+            <li>The Weeknd</li>
+        </ul>
+    </section>
+</div>
 
-        <dt><b>Сингл</b></dt>
-        <dd>Окрема композиція, що випускається самостійно або для популяризації альбому.</dd>
-    </dl>
+<footer>
+    <p>Music Space © 2026</p>
+</footer>
 
-   <h2>Зображення</h2>
-
-<p>Звичайне зображення:</p>
-<img src="images/imageDF.jpg" alt="Музичне зображення" width="320" height="240">
-
-<p>Зменшене в 2 рази зображення:</p>
-<img src="images/imageDL.jpg" alt="Маленьке музичне зображення" width="160" height="120">
-
-<p>Збільшене в 2 рази зображення:</p>
-<img src="images/imageDP.jpg" alt="Велике музичне зображення" width="640" height="480">
-
-<p>Картинка як гіперпосилання:</p>
-<a href="images/imageDP.jpg" target="_blank">
-    <img src="images/imageDP.jpg" alt="Картинка-посилання" width="200" height="150">
-</a>
-<p><a href="index.html">На головну сторінку</a></p>
 </body>
 </html>

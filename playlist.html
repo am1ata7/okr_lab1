@@ -1,83 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="author" content="Анастасія Дроздова">
-    <title>Музика — плейлист</title>
+    <title>DRZDV Music — плейлист</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor="#fff3e0" link="brown" vlink="purple" alink="red">
+<body>
 
+<header>
     <h1>Плейлист</h1>
+    <p>- упорядкований за тими чи іншими правилами, список аудіо-, або відеофайлів.</p>
+</header>
 
-    <p><b>Плейлист</b> — це добірка музичних композицій, зібраних за певним настроєм або тематикою.</p>
-    <p><i>Нижче подано приклад складної таблиці</i> з інформацією про декілька популярних треків.</p>
+<nav>
+    <a href="index.html">Головна</a>
+    <a href="artists.html">Виконавці</a>
+    <a href="genres.html">Жанри</a>
+    <a href="playlist.html">Плейлист</a>
+</nav>
 
-    <table border="1" cellspacing="8" cellpadding="10">
-        <colgroup>
-            <col style="background-color:#ffe0b2">
-            <col style="background-color:#fff8e1">
-            <col style="background-color:#fff8e1">
-            <col style="background-color:#fbe9e7">
-        </colgroup>
+<div class="container">
+    <section class="section content">
+        <h2>Добірка треків</h2>
+        <p>Плейлист з вайбовими треками разних жанрів</p>
 
-        <tr align="center" bgcolor="#ffcc80">
-            <th>№</th>
-            <th colspan="2">Інформація про трек</th>
-            <th>Оцінка</th>
-        </tr>
+        <table>
+            <colgroup>
+                <col style="background-color:#ffe0b2">
+                <col style="background-color:#fff8e1">
+                <col style="background-color:#fff8e1">
+                <col style="background-color:#fbe9e7">
+            </colgroup>
 
-        <tr align="left">
-            <td rowspan="2">1</td>
-            <td>Назва</td>
-            <td>Blinding Lights</td>
-            <td align="center">10</td>
-        </tr>
+            <tr>
+                <th>№</th>
+                <th colspan="2">Інформація про трек</th>
+                <th>Дата виходу</th>
+            </tr>
 
-        <tr align="right">
-            <td>Виконавець</td>
-            <td>The Weeknd</td>
-            <td align="center">Хіт</td>
-        </tr>
+            <tr>
+                <td rowspan="2">1</td>
+                <td>Назва</td>
+                <td>Genesis</td>
+                <td>2022</td>
+            </tr>
+            <tr>
+                <td colspan="2">Виконавець: Deftones</td>
+                <td>альбом <i>Ohms</i></td>
+            </tr>
 
-        <tr align="center">
-            <td rowspan="2">2</td>
-            <td>Назва</td>
-            <td>Levitating</td>
-            <td>9</td>
-        </tr>
+            <tr>
+                <td rowspan="2">2</td>
+                <td>Назва</td>
+                <td>It's No Good</td>
+                <td>1997</td>
+            </tr>
+            <tr>
+                <td colspan="2">Виконавець: Depeche Mode</td>
+                <td>альбом <i>Ultra</i></td>
+            </tr>
 
-        <tr valign="top">
-            <td>Виконавець</td>
-            <td>Dua Lipa</td>
-            <td>Популярний</td>
-        </tr>
+            <tr>
+                <td rowspan="2">3</td>
+                <td>Назва</td>
+                <td>Levitating</td>
+                <td>2020</td>
+            </tr>
+            <tr>
+                <td colspan="2">Виконавець: Dua Lipa</td>
+                <td>альбом <i>Future Nostalgia</i></td>
+            </tr>
 
-        <tr align="left">
-            <td rowspan="2">3</td>
-            <td>Назва</td>
-            <td>Enjoy the Silence</td>
-            <td align="center">10</td>
-        </tr>
+            <tr>
+                <td rowspan="2">4</td>
+                <td>Назва</td>
+                <td>Blinding Lights</td>
+                <td>2019</td>
+            </tr>
+            <tr>
+                <td colspan="2">Виконавець: The Weeknd</td>
+                <td>альбом <i>After Hours</i></td>
+            </tr>
+        </table>
+    </section>
 
-        <tr align="center">
-            <td>Виконавець</td>
-            <td>Depeche Mode</td>
-            <td>Класика</td>
-        </tr>
-    </table>
-
-    <h2>Плаваючий фрейм</h2>
-<p>iframe з музичним відео.</p>
-
-<div class="frame-block">
-    <iframe width="560" height="315"
-src="https://www.youtube.com/embed/rbTAlBGL-lI?si=e_S_lNeHlwRK6Ovh"
-title="YouTube video player"
-    frameborder="0"
-    allowfullscreen>
-    </iframe>
+    <section class="section">
+        <h2>Кліп для перегляду: "Crosses - This is A Trick (Deftones Remake)"</h2>
+        <div class="frame-block">
+            <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/rbTAlBGL-lI"
+            title="YouTube video player"
+            frameborder="0"
+            allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 </div>
-<p><a href="index.html">На головну сторінку</a></p>
+
+<footer>
+    <p>DRZDV Music © 2026</p>
+</footer>
+
 </body>
 </html>
