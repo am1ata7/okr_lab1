@@ -10,6 +10,7 @@ header {
     color: white;
     text-align: center;
     padding: 25px 15px;
+    position: relative;
 }
 
 header p {
@@ -22,15 +23,25 @@ nav {
     padding: 12px;
 }
 
-nav > a {
+/* Псевдокласи посилань */
+nav > a:link {
     color: white;
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
 }
 
+nav > a:visited {
+    color: #d8c8ff;
+}
+
 nav > a:hover {
     color: #ffcc66;
+    text-decoration: underline;
+}
+
+nav > a:active {
+    color: #ff6666;
 }
 
 .container {
@@ -44,27 +55,20 @@ nav > a:hover {
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
+    position: relative;
 }
 
-.section h2 {
-    color: darkblue;
-    margin-top: 0;
-}
-
-/* Контекстний селектор */
 .content p {
     text-align: justify;
     line-height: 1.6;
     color: #444;
 }
 
-/* Сусідній селектор */
 h2 + p {
     font-style: italic;
     color: #555;
 }
 
-/* Дочірній селектор */
 .card-list > .card {
     display: inline-block;
     width: 220px;
@@ -103,6 +107,11 @@ h2 + p {
     color: #8b0000;
 }
 
+#unique-link {
+    font-size: 20px;
+    color: purple !important;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -124,6 +133,105 @@ td {
 .frame-block {
     text-align: center;
     margin-top: 20px;
+}
+
+.featured-release {
+    background: linear-gradient(135deg, #eef0f8, #ffffff);
+    border-left: 6px solid #2e3b55;
+    padding: 22px;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.release-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: #2e3b55;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.inline-accent {
+    color: #8b0000;
+    font-weight: bold;
+    background-color: #fff1f1;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.floating-cover {
+    float: right;
+    width: 220px;
+    margin: 0 0 15px 20px;
+    border-radius: 8px;
+    border: 2px solid #666;
+}
+
+.clear-block {
+    clear: both;
+}
+
+.editor-note {
+    position: relative;
+    background-color: #fff8e1;
+    border: 1px solid #d6c07a;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.note-label {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background-color: #8b0000;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.fixed-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1f1f2e;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    z-index: 1000;
+    font-size: 14px;
+}
+
+.playlist-points li:first-child {
+    color: darkred;
+    font-weight: bold;
+}
+
+.section h2::before {
+    content: "♫ ";
+    color: #8b0000;
+}
+
+.section h2::after {
+    content: " ♫";
+    color: #8b0000;
+}
+
+footer p::before {
+    content: "— ";
+}
+
+footer p::after {
+    content: " —";
 }
 
 footer {
