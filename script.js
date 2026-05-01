@@ -53,7 +53,8 @@ function userDialog() {
 
     const resultBox = document.getElementById("dialog-result");
     if (resultBox) {
-        resultBox.innerHTML = "<strong>Рекомендований трек:</strong><br>" + recommendation;
+        resultBox.innerHTML =
+            "<strong>Рекомендований трек:</strong><br>" + recommendation;
     }
 }
 
@@ -160,7 +161,7 @@ function setupBubblingDemo() {
 
     outerBox.addEventListener("click", function (event) {
         if (event.target.tagName === "BUTTON") {
-            resultBox.innerHTML += "<br>Можете перейти до плейлісту";
+            resultBox.innerHTML += "<br>Спрацювало спливання: клік дійшов до контейнера кнопок.";
         }
     });
 }
@@ -183,7 +184,8 @@ function setupArtistDelegation() {
         const artistName = card.dataset.artist;
         const artistInfo = card.dataset.info;
 
-        resultBlock.innerHTML = "<strong>" + artistName + "</strong><br>" + artistInfo;
+        resultBlock.innerHTML =
+            "<strong>" + artistName + "</strong><br>" + artistInfo;
     });
 }
 
