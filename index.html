@@ -1,39 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    a {
-        color: brown !important;
-    }
-</style>
     <meta charset="UTF-8">
     <meta name="author" content="Анастасія Дроздова">
-    <title>Головна</title>
+    <title>DRZDV Music — головна</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor="#fce4ec" link="blue" vlink="purple" alink="red">
+<body>
 
-    <h1 id="special-title">Музика</h1>
+<header>
+    <h1 id="special-title">DRZDV Music</h1>
+    <p id="header-description">Створено меломаном</p>
+</header>
 
-    <p><b>Музика</b> є важливою частиною життя людини. Вона супроводжує нас у повсякденному житті, створює настрій і допомагає передавати емоції.</p>
+<nav>
+    <a href="index.html">Головна</a>
+    <a href="artists.html">Виконавці</a>
+    <a href="genres.html">Жанри</a>
+    <a href="playlist.html">Плейлист</a>
+</nav>
 
-    <p class="main-text"><i>Сучасна музика</i> охоплює велику кількість жанрів та виконавців. Кожна людина може знайти саме той стиль, який їй найбільше подобається.</p>
+<div class="container">
 
-    <p>На цьому сайті представлена коротка інформація про виконавців, жанри музики та невеликий плейлист.</p>
+    <section class="section content">
+        <h2>Свіжі релізи</h2>
+        <p>Композиції, які вийшли за останній час і задають настрій сайту.</p>
 
-    <h2>Навігація по сайту</h2>
-    <p><a href="artists.html">Перейти на сторінку "Виконавці"</a></p>
-    <p><a href="genres.html">Перейти на сторінку "Жанри"</a></p>
-    <p><a href="playlist.html">Перейти на сторінку "Плейлист"</a></p>
+        <div class="frame-block">
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/8-_c9rVt-xo?si=ch_vNJmRIByqZDaK"
+                title="YouTube video player"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
-    <h2>Приклади гіперпосилань</h2>
-    <p><a href="#bottom">Перейти в кінець поточної сторінки</a></p>
-    <p><a href="artists.html#artists-list">Перейти до списку виконавців на іншій сторінці</a></p>
-    <p><a id="unique-link" href="https://www.spotify.com/" target="_blank">Перейти на сайт Spotify</a></p>
+    <section class="section content" id="recommendation-section">
+        <h2>Персоналізація сайту</h2>
+        <p>Скористайтеся інструментами сайту для підбору музики та налаштування перегляду.</p>
 
-    <p>Музика буває дуже різною: спокійною, ритмічною, атмосферною або енергійною. Саме тому вона є важливою частиною сучасної культури.</p>
-<p style="color: darkred; font-weight: bold;">Цей абзац оформлений внутрішнім стилем.</p>
-    <p id="bottom"><a href="#top">Повернутися на початок сторінки</a></p>
+        <div class="music-tools outer-box" id="outer-box">
+            <button id="welcome-btn" class="site-btn" onclick="runQuickStart()">Швидкий старт</button>
+            <button id="dialog-btn" class="site-btn">Підібрати трек</button>
+            <button id="developer-btn" class="site-btn">Про автора сайту</button>
+            <button id="bg-btn" class="site-btn">Увімкнути вечірній режим</button>
+            <button id="location-btn" class="site-btn">Відкрити плейлист</button>
+        </div>
 
+        <div class="compare-box">
+            <label for="first-string">Перша назва:</label>
+            <input type="text" id="first-string" placeholder="Наприклад: Blinding Lights">
+
+            <label for="second-string">Друга назва:</label>
+            <input type="text" id="second-string" placeholder="Наприклад: Enjoy the Silence">
+
+            <button id="compare-btn" class="site-btn">Порівняти назви треків</button>
+        </div>
+
+        <div id="dialog-result" class="result-box">
+            Тут буде показано результат роботи кнопок.
+        </div>
+    </section>
+
+    <section class="section content">
+        <h2>Навігація</h2>
+        <p><a href="artists.html">Перейти до сторінки виконавців</a></p>
+        <p><a href="genres.html">Перейти до сторінки жанрів</a></p>
+        <p><a href="playlist.html">Перейти до плейлиста</a></p>
+        <p><a id="spotify-link" href="https://www.spotify.com/" target="_blank">Відкрити Spotify</a></p>
+    </section>
+
+    <div class="editor-note">
+        <div class="note-label">editor note</div>
+        <p id="editor-note-text">Те, що варте повторного прослуховування.</p>
+    </div>
+
+</div>
+
+<div class="fixed-player">Now playing: DRZDV Music</div>
+
+<footer>
+    <p>DRZDV Music © <span id="current-year">2026</span></p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
