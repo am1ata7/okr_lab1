@@ -1,140 +1,115 @@
 function runQuickStart() {
-    alert("Вітаємо на сайті DRZDV Music!");
-
-    let visitorName = prompt("Введіть ваше ім’я:");
-    if (visitorName === null || visitorName.trim() === "") {
-        alert("Ім’я не введено.");
-        return;
-    }
-
-    let answer = confirm(visitorName + ", бажаєте отримати персональну музичну рекомендацію?");
-    const resultBox = document.getElementById("dialog-result");
-
-    if (!resultBox) {
-        return;
-    }
-
-    if (answer) {
-        resultBox.textContent = "Натисніть кнопку «Підібрати трек», щоб отримати рекомендацію.";
-    } else {
-        resultBox.textContent = "Можете переглянути сторінки сайту або повернутися до рекомендацій пізніше.";
-    }
-}
-
-function showDeveloperInfo() {
-    alert("Сайт створила Анастасія Дроздова.");
+    alert("Вітаємо на DRZDV Music!");
 }
 
 function userDialog() {
-    let mood = prompt("Оберіть настрій: спокійний, енергійний, темний, важкий, меланхолійний");
+    let userName = prompt("Як вас звати?");
 
-    if (mood === null || mood.trim() === "") {
-        alert("Настрій не введено.");
-        return;
+    if (!userName) {
+        userName = "гість";
     }
 
-    mood = mood.trim().toLowerCase();
+    let likesMusic = confirm(userName + ", хочете підібрати музичний настрій?");
 
-    let recommendation = "";
+    if (likesMusic) {
+        let genre = "";
+        let attempts = 0;
 
-    if (mood === "спокійний") {
-        recommendation = "It's No Good — Depeche Mode";
-    } else if (mood === "енергійний") {
-        recommendation = "Levitating — Dua Lipa";
-    } else if (mood === "темний") {
-        recommendation = "Blinding Lights — The Weeknd";
-    } else if (mood === "важкий") {
-        recommendation = "Freak On a Leash — Korn";
-    } else if (mood === "меланхолійний") {
-        recommendation = "Genesis — Deftones";
+        while (genre === "" && attempts < 3) {
+            genre = prompt("Введіть жанр або настрій, який хочете послухати:");
+            attempts++;
+        }
+
+        if (genre) {
+            alert("Для вас підійде настрій: " + genre);
+            document.getElementById("dialog-result").textContent =
+                userName + ", ваш музичний настрій: " + genre + ".";
+        } else {
+            alert("Жанр не введено.");
+        }
     } else {
-        recommendation = "Enjoy the Silence — Depeche Mode";
-    }
-
-    const resultBox = document.getElementById("dialog-result");
-    if (resultBox) {
-        resultBox.innerHTML =
-            "<strong>Рекомендований трек:</strong><br>" + recommendation;
+        alert("Можна просто переглянути сайт.");
     }
 }
 
+function showDeveloperInfo(lastName, firstName, position = "розробниця сайту") {
+    alert("Автор: " + lastName + " " + firstName + "\nПосада: " + position);
+
+    document.getElementById("dialog-result").textContent =
+        "Автор сайту: " + lastName + " " + firstName + ", " + position + ".";
+}
+
 function compareStrings() {
-    const firstInput = document.getElementById("first-string");
-    const secondInput = document.getElementById("second-string");
+    const firstString = document.getElementById("first-string").value;
+    const secondString = document.getElementById("second-string").value;
 
-    if (!firstInput || !secondInput) {
+    if (!firstString || !secondString) {
+        alert("Введіть обидві назви треків.");
         return;
     }
 
-    const firstValue = firstInput.value.trim();
-    const secondValue = secondInput.value.trim();
-
-    if (firstValue === "" || secondValue === "") {
-        alert("Потрібно ввести дві назви для порівняння.");
-        return;
-    }
-
-    if (firstValue.length > secondValue.length) {
-        alert("Довша назва: " + firstValue);
-    } else if (secondValue.length > firstValue.length) {
-        alert("Довша назва: " + secondValue);
+    if (firstString.length > secondString.length) {
+        alert("Більша назва: " + firstString);
+        document.getElementById("dialog-result").textContent =
+            "Більша назва треку: " + firstString;
+    } else if (secondString.length > firstString.length) {
+        alert("Більша назва: " + secondString);
+        document.getElementById("dialog-result").textContent =
+            "Більша назва треку: " + secondString;
     } else {
-        alert("Обидві назви однакові за довжиною.");
+        alert("Назви однакової довжини.");
+        document.getElementById("dialog-result").textContent =
+            "Назви треків однакової довжини.";
     }
 }
 
 function changeBackgroundFor30Seconds() {
-    const originalColor = getComputedStyle(document.body).backgroundColor;
-    document.body.style.backgroundColor = "#dbeafe";
+    const oldBackground = document.body.style.backgroundColor;
 
-    const resultBox = document.getElementById("dialog-result");
-    if (resultBox) {
-        resultBox.textContent = "Вечірній режим увімкнено на 30 секунд.";
-    }
+    document.body.style.backgroundColor = "#1f1f2e";
+    document.body.style.color = "white";
 
     setTimeout(function () {
-        document.body.style.backgroundColor = originalColor;
-        if (resultBox) {
-            resultBox.textContent = "Вечірній режим вимкнено.";
-        }
+        document.body.style.backgroundColor = oldBackground;
+        document.body.style.color = "#222";
+        alert("Вечірній режим вимкнено.");
     }, 30000);
 }
 
 function redirectToPlaylist() {
-    const answer = confirm("Перейти до сторінки плейлиста?");
+    const answer = confirm("Відкрити сторінку плейлиста?");
+
     if (answer) {
         location.href = "playlist.html";
     }
 }
 
-function highlightNavByPage() {
-    const links = document.querySelectorAll("nav a");
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+function updateMusicFeed() {
+    const result = document.getElementById("dialog-result");
 
-    for (let i = 0; i < links.length; i++) {
-        const href = links[i].getAttribute("href");
-        if (href === currentPage) {
-            links[i].style.color = "#ffcc66";
-            links[i].style.textDecoration = "underline";
-        }
-    }
+    result.innerHTML = "<b>Оновлення:</b> у стрічку додано нові музичні рекомендації.";
+
+    const newParagraph = document.createElement("p");
+    const textNode = document.createTextNode("Рекомендація: переглянути плейлист DRZDV Music.");
+    newParagraph.append(textNode);
+
+    result.append(newParagraph);
 }
 
-function setupIndexPageHandlers() {
-    const developerBtn = document.getElementById("developer-btn");
+function initMainButtons() {
     const dialogBtn = document.getElementById("dialog-btn");
+    const developerBtn = document.getElementById("developer-btn");
     const compareBtn = document.getElementById("compare-btn");
     const bgBtn = document.getElementById("bg-btn");
     const locationBtn = document.getElementById("location-btn");
 
-    if (developerBtn) {
-        developerBtn.onclick = showDeveloperInfo;
-    }
-
     if (dialogBtn) {
         dialogBtn.addEventListener("click", userDialog);
-        dialogBtn.addEventListener("click", function () {
-            console.log("Кнопка підбору треку була натиснута.");
+    }
+
+    if (developerBtn) {
+        developerBtn.addEventListener("click", function () {
+            showDeveloperInfo("Дроздова", "Анастасія");
         });
     }
 
@@ -151,52 +126,130 @@ function setupIndexPageHandlers() {
     }
 }
 
-function setupBubblingDemo() {
-    const outerBox = document.getElementById("outer-box");
-    const resultBox = document.getElementById("dialog-result");
+function initMouseEvents() {
+    const moodZone = document.getElementById("mood-zone");
+    const hoverInfo = document.getElementById("hover-info");
 
-    if (!outerBox || !resultBox) {
+    if (!moodZone || !hoverInfo) {
         return;
     }
 
-    outerBox.addEventListener("click", function (event) {
-        if (event.target.tagName === "BUTTON") {
-            resultBox.innerHTML += "<br>Спрацювало спливання: клік дійшов до контейнера кнопок.";
-        }
-    });
-}
+    moodZone.addEventListener("mouseover", function (event) {
+        const card = event.target.closest(".mood-card");
 
-function setupArtistDelegation() {
-    const artistList = document.getElementById("artist-list");
-    const resultBlock = document.getElementById("artist-result");
-
-    if (!artistList || !resultBlock) {
-        return;
-    }
-
-    artistList.addEventListener("click", function (event) {
-        const card = event.target.closest(".card");
-
-        if (!card || !artistList.contains(card)) {
+        if (!card || !moodZone.contains(card)) {
             return;
         }
 
-        const artistName = card.dataset.artist;
-        const artistInfo = card.dataset.info;
+        if (event.relatedTarget && card.contains(event.relatedTarget)) {
+            return;
+        }
 
-        resultBlock.innerHTML =
-            "<strong>" + artistName + "</strong><br>" + artistInfo;
+        card.classList.add("is-hovered");
+        hoverInfo.textContent = card.dataset.note;
+    });
+
+    moodZone.addEventListener("mouseout", function (event) {
+        const card = event.target.closest(".mood-card");
+
+        if (!card || !moodZone.contains(card)) {
+            return;
+        }
+
+        if (event.relatedTarget && card.contains(event.relatedTarget)) {
+            return;
+        }
+
+        card.classList.remove("is-hovered");
+        hoverInfo.textContent = "Наведіть курсор на картку, щоб побачити опис настрою.";
+    });
+}
+
+function initDragAndDrop() {
+    const moodCards = document.querySelectorAll(".mood-card");
+    const choiceArea = document.getElementById("choice-area");
+    const selectedMood = document.getElementById("selected-mood");
+
+    if (!moodCards.length || !choiceArea || !selectedMood) {
+        return;
+    }
+
+    moodCards.forEach(function (card) {
+        card.addEventListener("mousedown", function (event) {
+            event.preventDefault();
+
+            const startRect = card.getBoundingClientRect();
+            const shiftX = event.clientX - startRect.left;
+            const shiftY = event.clientY - startRect.top;
+
+            card.classList.add("dragging");
+            card.style.left = startRect.left + "px";
+            card.style.top = startRect.top + "px";
+            card.style.width = startRect.width + "px";
+
+            function moveAt(clientX, clientY) {
+                card.style.left = clientX - shiftX + "px";
+                card.style.top = clientY - shiftY + "px";
+            }
+
+            function onMouseMove(event) {
+                moveAt(event.clientX, event.clientY);
+
+                const areaRect = choiceArea.getBoundingClientRect();
+
+                const insideArea =
+                    event.clientX >= areaRect.left &&
+                    event.clientX <= areaRect.right &&
+                    event.clientY >= areaRect.top &&
+                    event.clientY <= areaRect.bottom;
+
+                if (insideArea) {
+                    choiceArea.classList.add("is-active");
+                } else {
+                    choiceArea.classList.remove("is-active");
+                }
+            }
+
+            document.addEventListener("mousemove", onMouseMove);
+
+            document.addEventListener("mouseup", function onMouseUp(event) {
+                document.removeEventListener("mousemove", onMouseMove);
+                document.removeEventListener("mouseup", onMouseUp);
+
+                const areaRect = choiceArea.getBoundingClientRect();
+
+                const insideArea =
+                    event.clientX >= areaRect.left &&
+                    event.clientX <= areaRect.right &&
+                    event.clientY >= areaRect.top &&
+                    event.clientY <= areaRect.bottom;
+
+                if (insideArea) {
+                    selectedMood.textContent = "Обрано настрій: " + card.textContent.trim();
+                }
+
+                choiceArea.classList.remove("is-active");
+                card.classList.remove("dragging");
+
+                card.style.left = "";
+                card.style.top = "";
+                card.style.width = "";
+            });
+        });
+
+        card.ondragstart = function () {
+            return false;
+        };
     });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    initMainButtons();
+    initMouseEvents();
+    initDragAndDrop();
+
     const year = document.getElementById("current-year");
     if (year) {
         year.textContent = new Date().getFullYear();
     }
-
-    highlightNavByPage();
-    setupIndexPageHandlers();
-    setupBubblingDemo();
-    setupArtistDelegation();
 });
