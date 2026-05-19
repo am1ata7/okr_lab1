@@ -64,29 +64,24 @@
     </section>
 
     <section class="section content">
-        <h2>Музичний mood board</h2>
-        <p>Наведіть курсор на настрій або перетягніть картку в зону вибору.</p>
+        <h2>Музичний mood mixer</h2>
+        <p>Перетягніть маркер по шкалі, щоб обрати настрій для музичної добірки.</p>
 
-        <div id="mood-zone" class="mood-zone">
-            <div class="mood-card" data-note="Важке звучання, щільні гітари та енергія альтернативної сцени.">
-                heavy
+        <div id="mixer-zone" class="mixer-zone">
+            <div class="mixer-labels">
+                <span>heavy</span>
+                <span>synth</span>
+                <span>pop</span>
             </div>
 
-            <div class="mood-card" data-note="Синтезатори, холодна електроніка та нічна атмосфера.">
-                synth
-            </div>
-
-            <div class="mood-card" data-note="Мелодійний поп-настрій для легшого прослуховування.">
-                pop
+            <div id="mood-scale" class="mood-scale">
+                <div id="mood-progress" class="mood-progress"></div>
+                <div id="mood-handle" class="mood-handle">♫</div>
             </div>
         </div>
 
-        <p id="hover-info">Наведіть курсор на картку, щоб побачити опис настрою.</p>
-
-        <div id="choice-area" class="choice-area">
-            <p class="drop-note">Перетягніть сюди настрій, який хочете обрати.</p>
-            <div id="selected-mood">Поки нічого не обрано</div>
-        </div>
+        <p id="mood-result">Поточний настрій: synth</p>
+        <p id="hover-info">Наведіть курсор на шкалу, щоб побачити опис.</p>
     </section>
 
     <section class="section content">

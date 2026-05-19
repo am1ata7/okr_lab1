@@ -127,119 +127,100 @@ function initMainButtons() {
 }
 
 function initMouseEvents() {
-    const moodZone = document.getElementById("mood-zone");
+    const moodScale = document.getElementById("mood-scale");
     const hoverInfo = document.getElementById("hover-info");
 
-    if (!moodZone || !hoverInfo) {
+    if (!moodScale || !hoverInfo) {
         return;
     }
 
-    moodZone.addEventListener("mouseover", function (event) {
-        const card = event.target.closest(".mood-card");
+    moodScale.addEventListener("mouseover", function (event) {
+        event.target.classList.add("is-hovered");
 
-        if (!card || !moodZone.contains(card)) {
-            return;
-        }
-
-        if (event.relatedTarget && card.contains(event.relatedTarget)) {
-            return;
-        }
-
-        card.classList.add("is-hovered");
-        hoverInfo.textContent = card.dataset.note;
+        hoverInfo.textContent = "Шкала дозволяє обрати музичний настрій для добірки.";
     });
 
-    moodZone.addEventListener("mouseout", function (event) {
-        const card = event.target.closest(".mood-card");
-
-        if (!card || !moodZone.contains(card)) {
+    moodScale.addEventListener("mouseout", function (event) {
+        if (event.relatedTarget && moodScale.contains(event.relatedTarget)) {
             return;
         }
 
-        if (event.relatedTarget && card.contains(event.relatedTarget)) {
-            return;
-        }
-
-        card.classList.remove("is-hovered");
-        hoverInfo.textContent = "Наведіть курсор на картку, щоб побачити опис настрою.";
+        moodScale.classList.remove("is-hovered");
+        hoverInfo.textContent = "Наведіть курсор на шкалу, щоб побачити опис.";
     });
 }
 
 function initDragAndDrop() {
-    const moodCards = document.querySelectorAll(".mood-card");
-    const choiceArea = document.getElementById("choice-area");
-    const selectedMood = document.getElementById("selected-mood");
+    const scale = document.getElementById("mood-scale");
+    const handle = document.getElementById("mood-handle");
+    const progress = document.getElementById("mood-progress");
+    const result = document.getElementById("mood-result");
 
-    if (!moodCards.length || !choiceArea || !selectedMood) {
+    if (!scale || !handle || !progress || !result) {
         return;
     }
 
-    moodCards.forEach(function (card) {
-        card.addEventListener("mousedown", function (event) {
-            event.preventDefault();
+    function updateMood(percent) {
+        let mood = "synth";
+        let description = "електронний вайб і нічна атмосфера.";
 
-            const startRect = card.getBoundingClientRect();
-            const shiftX = event.clientX - startRect.left;
-            const shiftY = event.clientY - startRect.top;
+        if (percent < 33) {
+            mood = "heavy";
+            description = "важче звучання та більше енергії.";
+        } else if (percent > 66) {
+            mood = "pop";
+            description = "легший поп-настрій.";
+        }
 
-            card.classList.add("dragging");
-            card.style.left = startRect.left + "px";
-            card.style.top = startRect.top + "px";
-            card.style.width = startRect.width + "px";
+        handle.style.left = percent + "%";
+        progress.style.width = percent + "%";
+        result.textContent = "Поточний настрій: " + mood + " — " + description;
+    }
 
-            function moveAt(clientX, clientY) {
-                card.style.left = clientX - shiftX + "px";
-                card.style.top = clientY - shiftY + "px";
+    handle.addEventListener("mousedown", function (event) {
+        event.preventDefault();
+
+        handle.classList.add("dragging");
+
+        function onMouseMove(event) {
+            const rect = scale.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+
+            if (x < 0) {
+                x = 0;
             }
 
-            function onMouseMove(event) {
-                moveAt(event.clientX, event.clientY);
-
-                const areaRect = choiceArea.getBoundingClientRect();
-
-                const insideArea =
-                    event.clientX >= areaRect.left &&
-                    event.clientX <= areaRect.right &&
-                    event.clientY >= areaRect.top &&
-                    event.clientY <= areaRect.bottom;
-
-                if (insideArea) {
-                    choiceArea.classList.add("is-active");
-                } else {
-                    choiceArea.classList.remove("is-active");
-                }
+            if (x > rect.width) {
+                x = rect.width;
             }
 
-            document.addEventListener("mousemove", onMouseMove);
+            const percent = Math.round((x / rect.width) * 100);
+            updateMood(percent);
+        }
 
-            document.addEventListener("mouseup", function onMouseUp(event) {
-                document.removeEventListener("mousemove", onMouseMove);
-                document.removeEventListener("mouseup", onMouseUp);
+        document.addEventListener("mousemove", onMouseMove);
 
-                const areaRect = choiceArea.getBoundingClientRect();
-
-                const insideArea =
-                    event.clientX >= areaRect.left &&
-                    event.clientX <= areaRect.right &&
-                    event.clientY >= areaRect.top &&
-                    event.clientY <= areaRect.bottom;
-
-                if (insideArea) {
-                    selectedMood.textContent = "Обрано настрій: " + card.textContent.trim();
-                }
-
-                choiceArea.classList.remove("is-active");
-                card.classList.remove("dragging");
-
-                card.style.left = "";
-                card.style.top = "";
-                card.style.width = "";
-            });
+        document.addEventListener("mouseup", function onMouseUp() {
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+            handle.classList.remove("dragging");
         });
+    });
 
-        card.ondragstart = function () {
-            return false;
-        };
+    scale.addEventListener("mousedown", function (event) {
+        const rect = scale.getBoundingClientRect();
+        let x = event.clientX - rect.left;
+
+        if (x < 0) {
+            x = 0;
+        }
+
+        if (x > rect.width) {
+            x = rect.width;
+        }
+
+        const percent = Math.round((x / rect.width) * 100);
+        updateMood(percent);
     });
 }
 
